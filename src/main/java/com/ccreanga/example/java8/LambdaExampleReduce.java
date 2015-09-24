@@ -5,23 +5,16 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class LambdaExample4 {
+public class LambdaExampleReduce {
 
 
     public static void main(String[] args) {
         Person[] persons = PersonsRepo.persons();
 
-        System.out.println("-------------------------------------------------------------------");
-        Arrays.stream(persons)
-                .filter(
-                        p -> p.getAge() >= 18)
-                .map(p -> p.getName())
-                .forEach(name -> System.out.println(name));
-
         //compute total age
         System.out.println("-------------------------------------------------------------------");
         Double averageAge = Arrays.stream(persons)
-                .mapToInt((Person p) -> p.getAge())
+                .mapToInt(Person::getAge)
                 .average()
                 .getAsDouble();
         System.out.println(averageAge);
@@ -48,18 +41,7 @@ public class LambdaExample4 {
                 );
         System.out.println(harmonicMeanAge);
 
-        System.out.println("-------------------------------------------------------------------");
-        //COLLECT  -  an aggregation operation where a "collection" is created and each element is "added" to that collection
-        //Built in Collectors for most of the cases
-        List<Person> filtered = Arrays.stream(persons).filter(p -> p.getAge() >= 18).collect(Collectors.toList());
-        System.out.println(filtered);
 
-        System.out.println("-------------------------------------------------------------------");
-        //FLATMAP
-        List<String> addresses = Arrays.stream(persons).map(d -> d.getAddresses()).flatMap(a -> a.stream()).collect(Collectors.toList());
-        System.out.println(addresses);
-        Set<String> uniqueAddresses = Arrays.stream(persons).map(d -> d.getAddresses()).flatMap(a->a.stream()).collect(Collectors.toSet());
-        System.out.println(uniqueAddresses);
 
     }
 }

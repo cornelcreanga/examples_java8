@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class LambdaExample3 {
+public class LambdaExampleProdConsumer {
 
     public static void processPersonsWithPredicate(Person[] persons, Predicate<Person> predicate,Consumer<Person> consumer) {
         for (Person p : persons) {
@@ -20,15 +20,15 @@ public class LambdaExample3 {
         processPersonsWithPredicate(
                 persons,
                 (Person p) -> p.getAge() >= 18,
-                (Person p) -> System.out.println(p)
+                System.out::println
         );
         //OR
         System.out.println("-------------------------------------------------------------------");
         Arrays.stream(persons).limit(3)
                 .filter(
                         p -> p.getAge() >= 18)
-                                .map(p -> p.getName())
-                                .forEach(name -> System.out.println(name));
+                                .map(Person::getName)
+                                .forEach(System.out::println);
 
 
     }

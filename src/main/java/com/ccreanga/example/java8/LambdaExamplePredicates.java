@@ -2,7 +2,7 @@ package com.ccreanga.example.java8;
 
 import java.util.function.Predicate;
 
-public class LambdaExample2 {
+public class LambdaExamplePredicates {
 
     public static void printPersonsWithPredicate(Person[] persons, Predicate<Person> predicate) {
         for (Person p : persons) {
@@ -17,7 +17,7 @@ public class LambdaExample2 {
 
         printPersonsWithPredicate(
                 persons,
-                (Person p) -> p.getAge()>=18
+                p -> p.getAge()>=18
         );
     }
 
