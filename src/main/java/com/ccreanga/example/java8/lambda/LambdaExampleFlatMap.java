@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8;
+package com.ccreanga.example.java8.lambda;
 
 import java.util.Arrays;
 import java.util.Collection;

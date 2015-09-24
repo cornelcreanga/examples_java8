@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8;
+package com.ccreanga.example.java8.lambda;
 
 public class CheckPersonEligibleForArmyService implements CheckPerson {
     public boolean test(Person p) {

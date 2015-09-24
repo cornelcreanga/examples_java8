@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8.similarity;
+package com.ccreanga.example.java8.lambda.similarity;
 
 import java.util.Arrays;
 import java.util.List;

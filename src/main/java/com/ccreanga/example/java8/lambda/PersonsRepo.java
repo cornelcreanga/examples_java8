@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8;
+package com.ccreanga.example.java8.lambda;
 
 import java.time.LocalDate;
 import java.util.Arrays;

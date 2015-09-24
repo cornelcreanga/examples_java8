@@ -1,11 +1,9 @@
-package com.ccreanga.example.java8;
+package com.ccreanga.example.java8.lambda;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LambdaExampleComparator {
 

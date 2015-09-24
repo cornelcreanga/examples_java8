@@ -1,9 +1,6 @@
-package com.ccreanga.example.java8;
+package com.ccreanga.example.java8.lambda;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class LambdaExampleReduce {
 
