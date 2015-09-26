@@ -1,4 +1,7 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8.streams;
+
+import com.ccreanga.example.java8.Person;
+import com.ccreanga.example.java8.PersonsRepo;
 
 import java.util.Arrays;
 import java.util.List;

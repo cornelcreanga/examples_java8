@@ -1,9 +1,13 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8.lambda.syntax;
+
+import com.ccreanga.example.java8.Person;
+import com.ccreanga.example.java8.PersonsRepo;
 
 import java.util.function.Predicate;
 
 public class LambdaExamplePredicates {
 
+    //a simple method to print persons
     public static void printPersonsWithPredicate(Person[] persons, Predicate<Person> predicate) {
         for (Person p : persons) {
             if (predicate.test(p)) {
@@ -19,6 +23,8 @@ public class LambdaExamplePredicates {
                 persons,
                 p -> p.getAge()>=18
         );
+
+
     }
 
 }

@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -12,19 +12,12 @@ public class Person {
         MALE, FEMALE
     }
 
-    private List<String> addresses;
+    private List<Address> addresses;
     private String name;
     private LocalDate birthday;
     private Gender gender;
 
-    public Person(String name, LocalDate birthday, Gender gender) {
-        this.name = name;
-        this.birthday = birthday;
-        this.gender = gender;
-    }
-
-
-    public Person(String name, LocalDate birthday, Gender gender,List<String> addresses) {
+    public Person(String name, LocalDate birthday, Gender gender,List<Address> addresses) {
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
@@ -51,7 +44,7 @@ public class Person {
         return gender.equals(Gender.FEMALE);
     }
 
-    public List<String> getAddresses() {
+    public List<Address> getAddresses() {
         return Collections.unmodifiableList(addresses);
     }
 

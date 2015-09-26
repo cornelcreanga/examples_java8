@@ -1,7 +1,5 @@
 package com.ccreanga.example.java8.stream;
 
-import com.ccreanga.example.java8.lambda.Person;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;

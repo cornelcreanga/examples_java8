@@ -1,4 +1,7 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8.streams;
+
+import com.ccreanga.example.java8.Person;
+import com.ccreanga.example.java8.PersonsRepo;
 
 import java.util.Arrays;
 
@@ -8,7 +11,7 @@ public class LambdaExampleReduce {
     public static void main(String[] args) {
         Person[] persons = PersonsRepo.persons();
 
-        //compute total age
+        //compute mean age age
         System.out.println("-------------------------------------------------------------------");
         Double averageAge = Arrays.stream(persons)
                 .mapToInt(Person::getAge)
@@ -16,23 +19,23 @@ public class LambdaExampleReduce {
                 .getAsDouble();
         System.out.println(averageAge);
 
-        //OR
+        //OR use REDUCE
+        //it applies a binary operator to each element in the stream where
+        //the first argument to the operator is the return value of the previous application
+        //and the second argument is the current stream element.
         System.out.println("-------------------------------------------------------------------");
         averageAge =  Arrays.stream(persons)
-                        .mapToDouble((Person p) -> p.getAge())
+                        .mapToDouble(Person::getAge)
                         .reduce( 0,
                                 (acc,age)->acc+age
                         )/persons.length;
         System.out.println(averageAge);
 
-        //REDUCE
-        //it applies a binary operator to each element in the stream where
-        //the first argument to the operator is the return value of the previous application
-        //and the second argument is the current stream element.
+        //compute geometric age
         System.out.println("-------------------------------------------------------------------");
         Double harmonicMeanAge = persons.length/
                 Arrays.stream(persons)
-                .mapToDouble((Person p) -> p.getAge())
+                .mapToDouble(Person::getAge)
                 .reduce( 0,
                         (acc,age)->acc+1/age
                 );

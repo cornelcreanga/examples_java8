@@ -1,4 +1,8 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8.streams;
+
+import com.ccreanga.example.java8.Address;
+import com.ccreanga.example.java8.Person;
+import com.ccreanga.example.java8.PersonsRepo;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,12 +18,13 @@ public class LambdaExampleFlatMap {
 
 
         //FLATMAP - Replaces each element of this stream with the contents of a mapped stream produced by applying the provided mapping function
-        List<String> addresses = Arrays.stream(persons).map(Person::getAddresses).flatMap(Collection::stream).collect(Collectors.toList());
+        List<String> addresses =
+                Arrays.stream(persons).map(Person::getAddresses).flatMap(Collection::stream).map(Address::getCity).collect(Collectors.toList());
         System.out.println(addresses);
 
         System.out.println("-------------------------------------------------------------------");
 
-        Set<String> uniqueAddresses = Arrays.stream(persons).map(Person::getAddresses).flatMap(Collection::stream).collect(Collectors.toSet());
+        Set<String> uniqueAddresses = Arrays.stream(persons).map(Person::getAddresses).flatMap(Collection::stream).map(Address::getCity).collect(Collectors.toSet());
         System.out.println(uniqueAddresses);
 
     }

@@ -1,11 +1,14 @@
-package com.ccreanga.example.java8.lambda;
+package com.ccreanga.example.java8.lambda.syntax;
 
-import java.util.Arrays;
+import com.ccreanga.example.java8.Person;
+import com.ccreanga.example.java8.PersonsRepo;
+
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class LambdaExampleProdConsumer {
 
+    //a more generic method to process persons
     public static void processPersonsWithPredicate(Person[] persons, Predicate<Person> predicate,Consumer<Person> consumer) {
         for (Person p : persons) {
             if (predicate.test(p)) {
@@ -19,17 +22,9 @@ public class LambdaExampleProdConsumer {
 
         processPersonsWithPredicate(
                 persons,
-                (Person p) -> p.getAge() >= 18,
-                System.out::println
+                p -> p.getAge() >= 18,
+                p -> System.out.println(p)
         );
-        //OR
-        System.out.println("-------------------------------------------------------------------");
-        Arrays.stream(persons).limit(3)
-                .filter(
-                        p -> p.getAge() >= 18)
-                                .map(Person::getName)
-                                .forEach(System.out::println);
-
 
     }
 
