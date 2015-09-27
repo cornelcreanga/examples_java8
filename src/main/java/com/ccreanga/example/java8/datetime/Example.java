@@ -9,112 +9,48 @@ import java.util.Set;
 public class Example {
 
     public static void main(String[] args) {
+
         // the current date
         LocalDate currentDate = LocalDate.now();
-
-        // 2014-02-10
-        LocalDate tenthFeb2014 = LocalDate.of(2014, Month.FEBRUARY, 10);
-
-        // months values start at 1 (2014-08-01)
-        LocalDate firstAug2014 = LocalDate.of(2014, 8, 1);
-
-        // the 65th day of 2010 (2010-03-06)
-        LocalDate sixtyFifthDayOf2010 = LocalDate.ofYearDay(2010, 65);
+        // 2015-02-10
+        LocalDate tenthFeb2015 = LocalDate.of(2015, Month.FEBRUARY, 10);
+        LocalDate sixtyFifthDayOf2015 = LocalDate.ofYearDay(2015, 65);
 
 
         LocalTime currentTime = LocalTime.now(); // current time
         LocalTime midday = LocalTime.of(12, 0); // 12:00
-        LocalTime afterMidday = LocalTime.of(13, 30, 15); // 13:30:15
 
-        // 12345th second of day (03:25:45)
-        LocalTime fromSecondsOfDay = LocalTime.ofSecondOfDay(12345);
-
-        // dates with times, e.g. 2014-02-18 19:08:37.950
+        // dates with times
         LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalDateTime christmas2015 = LocalDateTime.of(2014, Month.DECEMBER, 24, 12, 0);
 
-        // 2014-10-02 12:30
-        LocalDateTime secondAug2014 = LocalDateTime.of(2014, 10, 2, 12, 30);
-
-        // 2014-12-24 12:00
-        LocalDateTime christmas2014 = LocalDateTime.of(2014, Month.DECEMBER, 24, 12, 0);
-
-
-        LocalDate date = LocalDate.of(2014, 2, 15); // 2014-02-15
-
-        boolean isBefore = LocalDate.now().isBefore(date); // false
-
-        // information about the month
-        Month february = date.getMonth(); // FEBRUARY
-        int februaryIntValue = february.getValue(); // 2
-        int minLength = february.minLength(); // 28
-        int maxLength = february.maxLength(); // 29
-        Month firstMonthOfQuarter = february.firstMonthOfQuarter(); // JANUARY
-
-        // information about the year
-        int year = date.getYear(); // 2014
-        int dayOfYear = date.getDayOfYear(); // 46
-        int lengthOfYear = date.lengthOfYear(); // 365
-        boolean isLeapYear = date.isLeapYear(); // false
-
-        DayOfWeek dayOfWeek = date.getDayOfWeek();
-        int dayOfWeekIntValue = dayOfWeek.getValue(); // 6
-        String dayOfWeekName = dayOfWeek.name(); // SATURDAY
-
-        int dayOfMonth = date.getDayOfMonth(); // 15
-        LocalDateTime startOfDay = date.atStartOfDay(); // 2014-02-15 00:00
-
-        // time information
-        LocalTime time = LocalTime.of(15, 30); // 15:30:00
-        int hour = time.getHour(); // 15
-        int second = time.getSecond(); // 0
-        int minute = time.getMinute(); // 30
-        int secondOfDay = time.toSecondOfDay(); // 55800
-
-
-        LocalDate tomorrow = LocalDate.now().plusDays(1);
-
+        //operation
         // before 5 houres and 30 minutes
-        LocalDateTime dateTime = LocalDateTime.now().minusHours(5).minusMinutes(30);
+        LocalDateTime dateTime = LocalDateTime.now().minusHours(5).minusMinutes(30).plusDays(1);
 
 
         ZoneId losAngeles = ZoneId.of("America/Los_Angeles");
         ZoneId berlin = ZoneId.of("Europe/Berlin");
 
-        // 2014-02-20 12:00
-        dateTime = LocalDateTime.of(2014, 02, 20, 12, 0);
+        dateTime = LocalDateTime.now();
 
-        // 2014-02-20 12:00, Europe/Berlin (+01:00)
         ZonedDateTime berlinDateTime = ZonedDateTime.of(dateTime, berlin);
-
-        // 2014-02-20 03:00, America/Los_Angeles (-08:00)
         ZonedDateTime losAngelesDateTime = berlinDateTime.withZoneSameInstant(losAngeles);
-
-        int offsetInSeconds = losAngelesDateTime.getOffset().getTotalSeconds(); // -28800
-
-        // a collection of all available zones
-        Set<String> allZoneIds = ZoneId.getAvailableZoneIds();
-
-        // using offsets
-        LocalDateTime date2 = LocalDateTime.of(2013, Month.JULY, 20, 3, 30);
-        ZoneOffset offset = ZoneOffset.of("+05:00");
-
-        // 2013-07-20 03:30 +05:00
-        OffsetDateTime plusFive = OffsetDateTime.of(date2, offset);
-
-        // 2013-07-19 20:30 -02:00
-        OffsetDateTime minusTwo = plusFive.withOffsetSameInstant(ZoneOffset.ofHours(-2));
-
+        System.out.println(berlinDateTime);
+        System.out.println(losAngelesDateTime);
 
         // periods
 
-        LocalDate firstDate = LocalDate.of(2010, 5, 17); // 2010-05-17
-        LocalDate secondDate = LocalDate.of(2015, 3, 7); // 2015-03-07
+        LocalDate firstDate = LocalDate.of(2010, 5, 17);
+        LocalDate secondDate = LocalDate.now();
         Period period = Period.between(firstDate, secondDate);
 
-        int days = period.getDays(); // 18
-        int months = period.getMonths(); // 9
-        int years = period.getYears(); // 4
-        boolean isNegative = period.isNegative(); // false
+        int days = period.getDays();
+        int months = period.getMonths();
+        int years = period.getYears();
+        boolean isNegative = period.isNegative();
+        System.out.printf("days %s months %s years %s isNegative %s",days,months,years,isNegative);
+
 
         Period twoMonthsAndFiveDays = Period.ofMonths(2).plusDays(5);
         LocalDate sixthOfJanuary = LocalDate.of(2014, 1, 6);

@@ -1,4 +1,4 @@
-package com.ccreanga.example.java8.streams;
+package com.ccreanga.example.java8.stream;
 
 import com.ccreanga.example.java8.Address;
 import com.ccreanga.example.java8.Person;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class LambdaExampleFlatMap {
+public class FlatMap {
 
 
     public static void main(String[] args) {

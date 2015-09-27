@@ -7,19 +7,19 @@ import java.util.stream.IntStream;
 public class Similarity {
 
     private static Double sum(List<Double> a){
-        return IntStream.range(0, a.size()).mapToDouble(a::get).reduce(0, Double::sum);
+        return IntStream.range(0, a.size()).mapToDouble(a::get).sum();
     }
 
     private static Double squareSum(List<Double> a){
-        return IntStream.range(0, a.size()).mapToDouble(i -> a.get(i) * a.get(i)).reduce(0, Double::sum);
+        return IntStream.range(0, a.size()).mapToDouble(i -> a.get(i) * a.get(i)).sum();
     }
 
     private static Double dotProduct(List<Double> a, List<Double> b){
-        return IntStream.range(0, a.size()).mapToDouble(i -> a.get(i) * b.get(i)).reduce(0, Double::sum);
+        return IntStream.range(0, a.size()).mapToDouble(i -> a.get(i) * b.get(i)).sum();
     }
 
     private static Double magnitude(List<Double> a){
-        return Math.sqrt(a.stream().mapToDouble(el -> el * el).reduce(0, Double::sum));
+        return Math.sqrt(a.stream().mapToDouble(el -> el * el).sum());
     }
 
     public static Double cosineSimilarity(List<Double> a, List<Double> b){

@@ -1,11 +1,11 @@
-package com.ccreanga.example.java8.streams;
+package com.ccreanga.example.java8.stream;
 
 import com.ccreanga.example.java8.Person;
 import com.ccreanga.example.java8.PersonsRepo;
 
 import java.util.Arrays;
 
-public class LambdaExampleReduce {
+public class Reduce {
 
 
     public static void main(String[] args) {

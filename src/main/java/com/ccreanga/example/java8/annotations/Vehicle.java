@@ -8,8 +8,8 @@ import java.util.List;
 public class Vehicle {
 
     //type annotations
-    @Encrypted String userID;
-    List<@Encrypted String> strings;
+    @ExampleTypeAnnotation String vehicleId;
+    List<@ExampleTypeAnnotation String> components;
 
     public static void main(String[] args) {
 
